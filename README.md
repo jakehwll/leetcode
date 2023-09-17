@@ -6,5 +6,5 @@ These are super-quick implementations of [leetcode](https://leetcode.com/) probl
 
 ```bash
 bun install
-bun run index.ts
+bun run {file}
 ```
