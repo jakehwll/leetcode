@@ -8,3 +8,7 @@ These are super-quick implementations of [leetcode](https://leetcode.com/) probl
 bun install
 bun run {file}
 ```
+
+## Widget
+
+[![Jake's LeetCode stats](https://leetcode-stats-six.vercel.app/?username=jakehwll&theme=dark)](https://leetcode.com/jakehwll/)
