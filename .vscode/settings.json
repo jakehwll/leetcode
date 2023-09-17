@@ -1,0 +1,7 @@
+{
+    "editor.inlineSuggest.enabled": false,
+    "[typescript]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    }
+}
