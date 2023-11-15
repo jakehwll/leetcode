@@ -1,58 +1,29 @@
-/**
- * broken :()
- */
-
-class ListNode {
-  val: number;
-  next: ListNode | null;
-  constructor(val?: number, next?: ListNode | null) {
-    this.val = val === undefined ? 0 : val;
-    this.next = next === undefined ? null : next;
-  }
-}
+import { ListNode } from "../utils/types";
 
 function mergeTwoLists(
   list1: ListNode | null,
   list2: ListNode | null
 ): ListNode | null {
-  if (!list1 || !list2) {
-    return list1 ?? list2;
+  let curr1 = list1
+  let curr2 = list2
+  let arr: number[] = []
+  let res: ListNode | null = null
+
+  while (curr1 && curr1.val !== null) {
+    arr.push(curr1.val);
+    curr1 = curr1.next;
+  }
+  while (curr2 && curr2.val !== null) {
+    arr.push(curr2.val);
+    curr2 = curr2.next;
   }
 
-  const linkedList = new ListNode(0);
-  linkedList.next = list1.val > list2.val ? list1 : list2
+  arr = arr
+    .sort((a, b) => a - b)
+    .reverse();
+  arr.forEach((val) => {
+    res = new ListNode(val, res);
+  });
 
-  let traverser: ListNode | null = list1.val > list2.val ? list1 : list2;
-  let traverserClone: ListNode | null = list1.val > list2.val ? list2 : list1;
-
-  while ( traverser ) {
-    if (traverserClone && traverserClone.val >= traverser.val) {
-      traverser.next = new ListNode(traverserClone.val, traverser.next)
-      traverserClone = traverserClone.next
-      traverser = traverser.next?.next ?? null
-    } else {
-      traverser = traverser.next
-    }
-  }
-
-  return linkedList.next ?? null
+  return res
 }
-
-// console.log(
-//   mergeTwoLists(
-//     new ListNode(1, new ListNode(2, new ListNode(4))),
-//     new ListNode(1, new ListNode(3, new ListNode(4)))
-//   )
-// )
-// console.log(
-//   mergeTwoLists(
-//     null,
-//     new ListNode(1)
-//   )
-// )
-console.log(
-  mergeTwoLists(
-    new ListNode(2),
-    new ListNode(1)
-  )
-)
